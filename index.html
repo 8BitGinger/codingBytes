@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodingBytes Tech Blog</title>
+    <link rel="stylesheet" type="text/css" href="/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Coding Bytes <span class="transparent">Tech Blog</span></h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/login">Login</a>
+      <a href="/logout">Logput</a>
+    </nav>
+    <main>
+      <aside>
+        <h2>
+          Coding Bytes a lot less with the support of a community of global
+          developers!
+        </h2>
+      </aside>
+
+
+      <div class="posts">
+        {{{body}}}
+
+        <section class="container">
+          <h3 class="topics-name">{{topics.name}}</h3>
+          <h4>Last Updated: {{format_time topics.timstamp}}</h4>
+          <section class="flex-row justify-center">
+            {{#each topics.posts as |post|}} {{> post-details}} {{/each}}
+          </section>
+        </section>
+      </div>
+
+    <section class="post">
+        <img src="/images/{{post.filename}}" alt="{{post.description}}">
+        <div class="post-details">
+        <h3>{{post.title}}</h3>
+        <p>By: {{post.text-content}}</p>
+        <p>Posted ON: {{ format_date post.timestamp}}</p>
+        </div>
+    </section>
+
+
+    </main>
+    <footer>
+      <p>
+        &copy; Coding Bytes Tech Blog 2020. All Rights Reserved. Design by
+        <a href="https://github.com/8BitGinger">8BitGinger</a>.
+      </p>
+  </body>
+</html>
