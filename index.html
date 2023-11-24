@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodingBytes Tech Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/css/jass.css" />
     <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
   </head>
@@ -27,24 +28,39 @@
       </aside>
 
 
-      <div class="posts">
+      <div class="topics">
         {{{body}}}
 
-        <section class="container">
+        <section class="container topic">
+            <img class="bullet" src="/public/images/bulletPoint.png" alt="bullet point">
+            <div class="column">
           <h3 class="topics-name">{{topics.name}}</h3>
           <h4>Last Updated: {{format_time topics.timstamp}}</h4>
-          <section class="flex-row justify-center">
+          <section class="posts">
             {{#each topics.posts as |post|}} {{> post-details}} {{/each}}
           </section>
+          </div>
         </section>
       </div>
 
     <section class="post">
-        <img src="/images/{{post.filename}}" alt="{{post.description}}">
+        <div class="row">
+        <!-- <img class="post-image" src="/images/{{post.filename}}" alt="{{post.description}}"> -->
+        <img src="./public/images/Placeholder Image.png" alt="placeholder" class="post-image">
         <div class="post-details">
         <h3>{{post.title}}</h3>
         <p>By: {{post.text-content}}</p>
         <p>Posted ON: {{ format_date post.timestamp}}</p>
+        </div>
+            <pre class="code">
+                <code>
+                    {{post.code}}
+                </code>
+            </pre>
+        </div>
+        <div class="comments">
+            <input id="comment" type="text" placeholder="Comment">
+            <button><i class="fa-solid fa-comment icon"></i></button>
         </div>
     </section>
 

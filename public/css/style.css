@@ -1,12 +1,12 @@
 :root {
-  --primary: #3d5852;
+  --primary: linear-gradient(to right, #3d5852, black);
   --secondary: #86938f;
   --tertiary: #5e877f;
-  --quatrinary: #6c6b67;
+  --quatrinary: linear-gradient(to bottom, #677975, #464f4d);
   --light: #e3e4e3;
   --dark: #182c23;
   --error: rgb(228, 46, 1);
-  --border-radius: 0.3rem;
+  --border-radius: 25px;
   --title-font: font-family: 'helvetica neue', helvetica, sans-serif;
   --content-font: font-family: 'courier new', courier, monospace;
   --nav-font: font-family: 'times new roman', times, serif;
@@ -23,7 +23,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: var(--quatrinary);
+  background: var(--light);
   font-family: var(--content-font);
 }
 
@@ -71,6 +71,7 @@ aside {
   align-content: center;
   align-items: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+border-right: 2px double var(--dark); ;
 }
 
 nav {
@@ -92,36 +93,175 @@ nav a:hover {
 }
 
 .container {
+    display: flex;
   flex: 1;
   padding: 20px;
-  background-color: var(--light);
+  background-color: var(--tertiary);
   width: 100%;
+  flex-direction: row;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.topic {
+    border-top: 5px solid #182c23;
+    border-bottom: 5px solid #182c23;
+    
+}
+
+.bullet {
+    width: 200px;
+    height: 200px;
 }
 
 footer {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
-    background: var(--primary);
+    background: transparent;
   color: var(--light);
   margin-left: 150px;
+  height: fit-content;
+}
+
+.transparent {
+    opacity: 80%;
+    font-style: italic;
+}
+
+.transparent h1 {
+    font-size: 1rem;
 }
 
 .post {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 25px;
   margin: 10px;
-  width: 100%;
-  background-color: var(--light);
+  width: 40%;
+  background-color: var(--tertiary);
+  border-radius: var(--border-radius);
+  margin-right: 15px;
+  border: 3px solid var(--dark);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .post-image {
-  width: 200px;
-  height: 200px;
+  width: 50px;
+    height: 50px;
   margin-right: 20px;
   background-color: var(--secondary);
+  border-radius: 50%;
+}
+
+.post-image:hover {
+    scale: 1.1;
 }
 
 .post-details {
   flex-direction: column;
   display: flex;
+  width: 45%;
 }
+
+.code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+  background-color: var(--dark);
+  color: var(--light);
+    margin: auto;
+  border-radius: var(--border-radius);
+
+}
+
+
+
+.code pre {
+    font-family: var(--content-font);
+    font-size: 1rem;
+    color: var(--light);
+    background-color: var(--dark);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+        flex-wrap: wrap;
+
+}
+
+.code pre, code {
+    white-space:normal;
+    word-wrap:break-word;
+}
+
+.code code {
+   
+    padding: 10px 2px;
+    font-family: var(--content-font);
+    font-size: 1rem;
+    color: var(--light);
+    flex-wrap: wrap;
+
+}
+
+.comments {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.comments input{
+    width: 40%;
+    height: 50px;
+    margin: 10px 5px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.comments input::placeholder {
+    color: var(--secondary);
+}
+
+.comments button {
+    height: 40px;
+    width: 40px;
+        margin: 10px 5px;
+        border-radius: 50%;
+        border: 2px solid var(--secondary);
+
+}
+
+.icon{
+    color: var(--dark);
+    font-size: x-large;
+}
+
+.bullet:hover {
+    animation: animateForwards 1s forwards;
+}
+
+@keyframes animateForwards {
+	from { top: 0; transform: rotate(0deg); }
+	to { top: .9em; transform: rotate(-15deg); }
